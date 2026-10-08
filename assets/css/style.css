@@ -2,6 +2,7 @@
 @font-face{font-family:Roboto;font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/roboto-400.ttf') format('truetype')}
 @font-face{font-family:Roboto;font-style:normal;font-weight:500;font-display:swap;src:url('../fonts/roboto-500.ttf') format('truetype')}
 @font-face{font-family:Roboto;font-style:normal;font-weight:700;font-display:swap;src:url('../fonts/roboto-700.ttf') format('truetype')}
+@font-face{font-family:Academicons;font-style:normal;font-weight:400;font-display:block;src:url('../fonts/academicons.woff') format('woff')}
 :root{--bg:#fff;--text:#171717;--muted:#686868;--accent:#b509ac;--line:rgba(0,0,0,.1);--footer:#1c1c1d;--footer-text:#e8e8e8;--badge:#f8f8f8}
 :root[data-theme=dark]{--bg:#1c1c1d;--text:#e8e8e8;--muted:#b4b4b4;--accent:#53bddb;--line:#424246;--footer:#e8e8e8;--footer-text:#1c1c1d;--badge:#27272b}
 *{box-sizing:border-box}
@@ -20,12 +21,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .nav-links a{font-size:.9rem;color:var(--text);padding:16px 0;white-space:nowrap}
 .nav-links a:hover,.nav-links a[aria-current]{color:var(--accent);text-decoration:none}
 .nav-links a[aria-current]{font-weight:500}
-.theme-toggle{border:0;background:none;color:var(--text);padding:8px;display:flex;align-items:center;cursor:pointer}
+.theme-toggle{position:relative;width:34px;height:34px;flex:none;border:0;background:none;color:var(--text);padding:8px;display:flex;align-items:center;cursor:pointer}
 .theme-toggle:hover{color:var(--accent)}
 .icon{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
-.sun{display:none}
-[data-theme=dark] .sun{display:block}
-[data-theme=dark] .moon{display:none}
+.theme-toggle .icon{position:absolute;left:8px;top:50%;transform:translateY(-50%);transition:opacity .25s ease}
+.sun{opacity:0}
+[data-theme=dark] .sun{opacity:1}
+[data-theme=dark] .moon{opacity:0}
+html.theme-transition :is(body,.site-header,a,.theme-toggle,.menu-toggle,.reading-progress,.date,.period,.detail,.honor-year,.paper-link,footer,.skip-link){transition:background-color .25s ease,color .25s ease,border-color .25s ease}
 .reading-progress{height:2px;position:absolute;left:0;bottom:-1px;width:0;background:var(--accent)}
 .menu-toggle{display:none}
 .icon-definitions{position:absolute;width:0;height:0;overflow:hidden}
@@ -43,6 +46,9 @@ p{margin:0 0 16px}
 .social-links a{display:inline-flex;align-items:center;color:var(--text);padding:4px}
 .social-links a:hover{color:var(--accent)}
 .social-icon{width:34px;height:34px;fill:currentColor}
+.ai{font-family:Academicons;font-weight:400;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;display:inline-block;font-style:normal;font-variant:normal;text-rendering:auto;line-height:1}
+.ai-google-scholar::before{content:'\e9d4'}
+.ai.social-icon{font-size:34px;text-align:center}
 .email a{color:var(--text)}
 .email{font-size:.95rem;overflow-wrap:anywhere}
 .opportunities{margin-bottom:0}
@@ -75,4 +81,4 @@ footer{padding:12px 0;background:var(--footer);color:var(--footer-text);font-siz
 .skip-link:focus{top:8px}
 @media(max-width:650px){.navigation{gap:10px}.nav-links{gap:14px}.nav-links a{font-size:.875rem}.container{padding-left:22px;padding-right:22px}.chinese-name{font-size:1.15rem}}
 @media(max-width:575px){.navigation{justify-content:flex-end;flex-wrap:wrap;gap:0;padding-top:6px;padding-bottom:6px;min-height:56px}.menu-toggle{display:flex;flex-direction:column;justify-content:center;gap:5px;background:none;border:0;width:38px;height:40px;padding:8px;cursor:pointer;margin-right:8px;color:var(--text)}.menu-toggle span{width:22px;height:2px;background:currentColor}.nav-links{display:none;width:100%;order:3;flex-direction:column;align-items:stretch;gap:0;padding:8px 0 10px}.nav-links.open{display:flex}.nav-links a{padding:9px 0;font-size:1rem}.theme-toggle{height:40px}main.container{padding-top:30px;padding-bottom:36px}h1{font-size:2.2rem;margin-bottom:22px}h2{font-size:1.75rem}.profile{float:none;width:190px;max-width:65%;margin:0 auto 26px}.social-links{margin-top:13px}.social-icon{width:30px;height:30px}.period{float:none;display:block;margin-left:0}.news-list li{grid-template-columns:43px 1fr;gap:10px}.honors-list{padding-left:19px}.chinese-name{margin-left:7px}section{margin-top:30px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.toast{transition:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.toast,.theme-toggle .icon,html.theme-transition :is(body,.site-header,a,.theme-toggle,.menu-toggle,.reading-progress,.date,.period,.detail,.honor-year,.paper-link,footer,.skip-link){transition:none}}

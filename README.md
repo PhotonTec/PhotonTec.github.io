@@ -20,7 +20,9 @@ links: {
 }
 ```
 
-All four icons remain visible before links are added. Placeholder buttons display “link coming soon”; they do not navigate to fake URLs.
+Only resource keys present in a paper's `links` object produce buttons. Remove a key to hide that button; use an empty object to hide all resource buttons. Listed resources with a `null` URL display “link coming soon”; they do not navigate to fake URLs.
+
+Current resource buttons: RefMover has none; Dual-view Reflection Removal has PDF; AdaptiveAE has PDF, arXiv, and Website; AdaptiveISP and Articulated Object Manipulation each have all four.
 
 The Google Scholar icon currently uses a targeted Scholar search because a verified personal Scholar profile was not found. Replace the `href` on `#scholar-link` in `index.html` with the profile URL when available.
 
@@ -46,4 +48,4 @@ Push to `PhotonTec/PhotonTec.github.io` on the `main` branch, then select **GitH
 
 The CV describes Tianyi Xu as the fourth author of the ICRA paper. The published conference author list instead places Tianyi Xu sixth; the homepage follows that list and omits author-rank claims. The earlier arXiv version has a different author list.
 
-Interface icons: Feather (MIT) and Simple Icons (CC0); typography: Google Roboto (SIL Open Font License). These are locally hosted; no third-party runtime libraries, trackers, or analytics are required.
+Interface icons: Feather (MIT), Simple Icons (CC0), and the Academicons 1.9.1 Google Scholar glyph used by the reference site (font: SIL Open Font License; code: MIT). Typography: Google Roboto (SIL Open Font License). These are locally hosted; no third-party runtime libraries, trackers, or analytics are required.

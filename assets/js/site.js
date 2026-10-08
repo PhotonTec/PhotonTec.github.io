@@ -1,4 +1,5 @@
-// Add real paper URLs below. A null URL keeps the icon visible as a placeholder.
+// Add real paper URLs below. A null URL keeps a listed icon visible as a placeholder.
+// Omit a resource key to hide that button for the corresponding paper.
 const publications = [
   {
     id: 'refmover',
@@ -6,7 +7,7 @@ const publications = [
     authors: ['Zifeng Wang', 'Yuchen Hong', 'Tianyi Xu', 'Haofeng Zhong', 'Shuchen Weng', 'Jinxiu Liang', 'Boxin Shi'],
     venue: 'IEEE Transactions on Pattern Analysis and Machine Intelligence',
     type: 'journal', conference: 'TPAMI', year: 2026,
-    links: { pdf: null, arxiv: null, website: null, code: null }
+    links: {}
   },
   {
     id: 'reflection-removal',
@@ -14,7 +15,7 @@ const publications = [
     authors: ['Tianyi Xu', 'Zifeng Wang', 'Boyang Lv', 'Shuchen Weng', 'Boxin Shi'],
     venue: 'Proceedings of the European Conference on Computer Vision',
     conference: 'ECCV', year: 2026,
-    links: { pdf: null, arxiv: null, website: null, code: null }
+    links: { pdf: null }
   },
   {
     id: 'adaptiveae',
@@ -22,7 +23,7 @@ const publications = [
     authors: ['Tianyi Xu', 'Fan Zhang', 'Boxin Shi', 'Tianfan Xue', 'Yujin Wang'],
     venue: 'Proceedings of the IEEE/CVF International Conference on Computer Vision',
     conference: 'ICCV', year: 2025,
-    links: { pdf: null, arxiv: null, website: null, code: null }
+    links: { pdf: null, arxiv: null, website: null }
   },
   {
     id: 'adaptiveisp',
@@ -65,7 +66,7 @@ document.getElementById('publication-list').innerHTML = publications.map(paper =
       ? `<a class="paper-link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" aria-label="${label} for ${escapeHtml(paper.title)}">${contents}</a>`
       : `<button class="paper-link" type="button" data-placeholder="${label}" title="${label} link coming soon" aria-label="${label} for ${escapeHtml(paper.title)}: link coming soon">${contents}</button>`;
   }).join('');
-  return `<article class="publication" id="${paper.id}"><h3>${escapeHtml(paper.title)}</h3><p class="authors">${authors}</p><p class="venue">${paper.type === 'journal' ? '' : 'In '}<i>${escapeHtml(paper.venue)}</i> (<strong>${paper.conference} ${paper.year}</strong>).</p><div class="paper-links">${resources}</div></article>`;
+  return `<article class="publication" id="${paper.id}"><h3>${escapeHtml(paper.title)}</h3><p class="authors">${authors}</p><p class="venue">${paper.type === 'journal' ? '' : 'In '}<i>${escapeHtml(paper.venue)}</i> (<strong>${paper.conference} ${paper.year}</strong>).</p>${resources ? `<div class="paper-links">${resources}</div>` : ''}</article>`;
 }).join('');
 
 const themeButton = document.querySelector('.theme-toggle');
@@ -75,9 +76,13 @@ const updateThemeLabel = () => {
   themeButton.title = label;
 };
 updateThemeLabel();
+let themeTransitionTimer;
 themeButton.addEventListener('click', () => {
   const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+  clearTimeout(themeTransitionTimer);
+  document.documentElement.classList.add('theme-transition');
   document.documentElement.dataset.theme = theme;
+  themeTransitionTimer = setTimeout(() => document.documentElement.classList.remove('theme-transition'), 300);
   try { localStorage.setItem('theme', theme); } catch (_) {}
   updateThemeLabel();
 });
