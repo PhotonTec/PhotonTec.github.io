@@ -1,6 +1,14 @@
 // Add real paper URLs below. A null URL keeps the icon visible as a placeholder.
 const publications = [
   {
+    id: 'refmover',
+    title: 'RefMover: Diffusion-Based Single Image Reflection Removal With Language and Region Guidance',
+    authors: ['Zifeng Wang', 'Yuchen Hong', 'Tianyi Xu', 'Haofeng Zhong', 'Shuchen Weng', 'Jinxiu Liang', 'Boxin Shi'],
+    venue: 'IEEE Transactions on Pattern Analysis and Machine Intelligence',
+    type: 'journal', conference: 'TPAMI', year: 2026,
+    links: { pdf: null, arxiv: null, website: null, code: null }
+  },
+  {
     id: 'reflection-removal',
     title: 'Diffusion-based Dual-view Reflection Removal',
     authors: ['Tianyi Xu', 'Zifeng Wang', 'Boyang Lv', 'Shuchen Weng', 'Boxin Shi'],
@@ -57,7 +65,7 @@ document.getElementById('publication-list').innerHTML = publications.map(paper =
       ? `<a class="paper-link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" aria-label="${label} for ${escapeHtml(paper.title)}">${contents}</a>`
       : `<button class="paper-link" type="button" data-placeholder="${label}" title="${label} link coming soon" aria-label="${label} for ${escapeHtml(paper.title)}: link coming soon">${contents}</button>`;
   }).join('');
-  return `<article class="publication" id="${paper.id}"><h3>${escapeHtml(paper.title)}</h3><p class="authors">${authors}</p><p class="venue">In <i>${escapeHtml(paper.venue)}</i> (<strong>${paper.conference} ${paper.year}</strong>).</p><div class="paper-links">${resources}</div></article>`;
+  return `<article class="publication" id="${paper.id}"><h3>${escapeHtml(paper.title)}</h3><p class="authors">${authors}</p><p class="venue">${paper.type === 'journal' ? '' : 'In '}<i>${escapeHtml(paper.venue)}</i> (<strong>${paper.conference} ${paper.year}</strong>).</p><div class="paper-links">${resources}</div></article>`;
 }).join('');
 
 const themeButton = document.querySelector('.theme-toggle');

@@ -38,6 +38,8 @@ Push to `PhotonTec/PhotonTec.github.io` on the `main` branch, then select **GitH
 - Section reference: https://guesss2022.github.io/
 - Local CV: CV-Tianyi.pdf (not published with this site).
 - ECCV paper authors: https://ci.idm.pku.edu.cn/publication
+- RefMover: https://doi.org/10.1109/TPAMI.2026.3731103 (published online in September 2026).
+- AI² Robotics (智平方): https://ai2robotics.com/en/about/
 - AdaptiveAE: https://arxiv.org/abs/2508.13503
 - AdaptiveISP: https://arxiv.org/abs/2410.22939
 - ICRA paper's conference author order: https://doi.org/10.1109/ICRA57147.2024.10610593
