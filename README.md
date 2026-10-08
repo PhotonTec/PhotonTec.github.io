@@ -30,7 +30,7 @@ Set `pdfIncludesSupplement: true` only when the PDF includes supplementary mater
 
 After editing publications, update the matching static markup in `index.html` so the same resources remain available without JavaScript.
 
-The Google Scholar icon currently uses a targeted Scholar search because a verified personal Scholar profile was not found. Replace the `href` on `#scholar-link` in `index.html` with the profile URL when available.
+The Google Scholar icon links to the profile supplied by Tianyi Xu: https://scholar.google.com/citations?hl=en&user=BwVgL_kAAAAJ. Its font size compensates for the Academicons glyph’s smaller visible bounds so its height matches the GitHub icon.
 
 ## Preview
 
