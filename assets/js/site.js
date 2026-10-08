@@ -1,5 +1,4 @@
-// Add real paper URLs below. A null URL keeps a listed icon visible as a placeholder.
-// Omit a resource key to hide that button for the corresponding paper.
+// Omit a resource key to hide that button. Host PDFs locally for direct downloads.
 const publications = [
   {
     id: 'refmover',
@@ -15,7 +14,8 @@ const publications = [
     authors: ['Tianyi Xu', 'Zifeng Wang', 'Boyang Lv', 'Shuchen Weng', 'Boxin Shi'],
     venue: 'Proceedings of the European Conference on Computer Vision',
     conference: 'ECCV', year: 2026,
-    links: { pdf: null }
+    pdfIncludesSupplement: true,
+    links: { pdf: 'assets/pdf/dual-view-reflection-removal-main-and-supp.pdf' }
   },
   {
     id: 'adaptiveae',
@@ -23,7 +23,13 @@ const publications = [
     authors: ['Tianyi Xu', 'Fan Zhang', 'Boxin Shi', 'Tianfan Xue', 'Yujin Wang'],
     venue: 'Proceedings of the IEEE/CVF International Conference on Computer Vision',
     conference: 'ICCV', year: 2025,
-    links: { pdf: null, arxiv: null, website: null }
+    pdfIncludesSupplement: true,
+    links: {
+      pdf: 'assets/pdf/adaptiveae-main-and-supp.pdf',
+      arxiv: 'https://arxiv.org/abs/2508.13503',
+      website: 'https://openimaginglab.github.io/AdaptiveAE/',
+      video: 'https://openimaginglab.github.io/AdaptiveAE/static/videos/video.mp4'
+    }
   },
   {
     id: 'adaptiveisp',
@@ -31,7 +37,13 @@ const publications = [
     authors: ['Yujin Wang', 'Tianyi Xu', 'Fan Zhang', 'Tianfan Xue', 'Jinwei Gu'],
     venue: 'Advances in Neural Information Processing Systems',
     conference: 'NeurIPS', year: 2024,
-    links: { pdf: null, arxiv: null, website: null, code: null }
+    pdfIncludesSupplement: true,
+    links: {
+      pdf: 'assets/pdf/adaptiveisp-main-and-supp.pdf',
+      arxiv: 'https://arxiv.org/abs/2410.22939',
+      website: 'https://openimaginglab.github.io/AdaptiveISP/',
+      code: 'https://github.com/OpenImagingLab/AdaptiveISP'
+    }
   },
   {
     id: 'coarse-to-fine-affordance',
@@ -39,7 +51,13 @@ const publications = [
     authors: ['Suhan Ling', 'Yian Wang', 'Ruihai Wu', 'Shiguang Wu', 'Yuzheng Zhuang', 'Tianyi Xu', 'Yu Li', 'Chang Liu', 'Hao Dong'],
     venue: 'Proceedings of the IEEE International Conference on Robotics and Automation',
     conference: 'ICRA', year: 2024,
-    links: { pdf: null, arxiv: null, website: null, code: null }
+    pdfIncludesSupplement: false,
+    links: {
+      pdf: 'assets/pdf/coarse-to-fine-affordance.pdf',
+      arxiv: 'https://arxiv.org/abs/2402.18699',
+      website: 'https://sites.google.com/view/coarse-to-fine/',
+      code: 'https://github.com/Suhan-Ling/Coarse-to-fine_Affordance'
+    }
   }
 ];
 
@@ -49,8 +67,8 @@ const authorUrls = {
   'Hao Dong': 'https://zsdonghao.github.io/',
   'Shuchen Weng': 'https://shuchenweng.github.io/'
 };
-const resourceLabels = { pdf: 'PDF', arxiv: 'arXiv', website: 'Website', code: 'Code' };
-const resourceIcons = { pdf: 'pdf', arxiv: 'arxiv', website: 'globe', code: 'code' };
+const resourceLabels = { pdf: 'PDF', arxiv: 'arXiv', website: 'Website', code: 'Code', video: 'Video' };
+const resourceIcons = { pdf: 'pdf', arxiv: 'arxiv', website: 'globe', code: 'code', video: 'video' };
 const escapeHtml = value => String(value).replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
 
 document.getElementById('publication-list').innerHTML = publications.map(paper => {
@@ -62,6 +80,10 @@ document.getElementById('publication-list').innerHTML = publications.map(paper =
   const resources = Object.entries(paper.links).map(([type, url]) => {
     const label = resourceLabels[type];
     const contents = `<svg class="icon" aria-hidden="true"><use href="#icon-${resourceIcons[type]}"></use></svg>${label}`;
+    if (type === 'pdf' && url) {
+      const description = paper.pdfIncludesSupplement ? 'Download paper and supplementary material' : 'Download paper';
+      return `<a class="paper-link" href="${escapeHtml(url)}" download="${escapeHtml(url.split('/').pop())}" title="${description}" aria-label="${description}: ${escapeHtml(paper.title)}">${contents}</a>`;
+    }
     return url
       ? `<a class="paper-link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" aria-label="${label} for ${escapeHtml(paper.title)}">${contents}</a>`
       : `<button class="paper-link" type="button" data-placeholder="${label}" title="${label} link coming soon" aria-label="${label} for ${escapeHtml(paper.title)}: link coming soon">${contents}</button>`;
