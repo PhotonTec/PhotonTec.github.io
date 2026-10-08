@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Tianyi Xu's Homepage</title>
+  <meta name="author" content="Tianyi Xu">
+  <meta name="description" content="Tianyi Xu, Ph.D. student at Peking University. Research in world models, embodied intelligence, video generation, and computational photography.">
+  <link rel="canonical" href="https://photontec.github.io/">
+  <link rel="icon" href="assets/img/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#about-me">Skip to content</a>
+  <header class="site-header">
+    <nav class="container navigation" aria-label="Main navigation">
+      <button class="menu-toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="Open navigation"><span></span><span></span><span></span></button>
+      <div id="nav-links" class="nav-links">
+        <a href="#about-me" aria-current="location">About</a>
+        <a href="#news">News</a>
+        <a href="#publications">Publications</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#honors">Honors</a>
+      </div>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Change theme"><svg class="moon icon" aria-hidden="true"><use href="#icon-moon"></use></svg><svg class="sun icon" aria-hidden="true"><use href="#icon-sun"></use></svg></button>
+    </nav>
+    <div class="reading-progress" aria-hidden="true"></div>
+  </header>
+
+  <!-- Interface icons use Feather and Simple Icons paths (MIT / CC0). -->
+  <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="icon-pdf" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M8 13h8M8 17h6"/></symbol>
+    <symbol id="icon-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a16 16 0 0 1 0 20 16 16 0 0 1 0-20"/></symbol>
+    <symbol id="icon-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6m6-16-4 20"/></symbol>
+    <symbol id="icon-arxiv" viewBox="0 0 24 24"><path d="m6 4 12 16M18 4 6 20M9 4h9v9M15 20H6v-9"/></symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+    <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></symbol>
+    <symbol id="icon-github" viewBox="0 0 24 24"><path d="M12 .297a12 12 0 0 0-3.793 23.385c.6.111.82-.261.82-.577v-2.234c-3.338.726-4.043-1.416-4.043-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.835 2.807 1.305 3.492.998.108-.776.419-1.305.763-1.605-2.665-.304-5.467-1.334-5.467-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.52 11.52 0 0 1 12 6.098c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.652.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.216.694.825.576A12 12 0 0 0 12 .297z"/></symbol>
+    <symbol id="icon-scholar" viewBox="0 0 24 24"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5 4.838 13.5a8 8 0 0 1 14.324 0L24 9.5z"/></symbol>
+  </svg>
+
+  <main class="container">
+    <section id="about-me" class="about" aria-labelledby="name">
+      <h1 id="name"><strong>Tianyi</strong> Xu <span class="chinese-name" lang="zh">徐天艺</span></h1>
+      <aside class="profile" aria-label="Profile photo and academic profiles">
+        <picture><source srcset="assets/img/tianyi-xu.webp" type="image/webp"><img src="assets/img/tianyi-xu.jpg" width="1000" height="1500" alt="Tianyi Xu in graduation robes beside roses at Peking University" fetchpriority="high"></picture>
+        <div class="social-links">
+          <a id="scholar-link" href="https://scholar.google.com/scholar?q=%22Tianyi+Xu%22+%22AdaptiveAE%22" target="_blank" rel="noopener noreferrer" aria-label="Find Tianyi Xu's research on Google Scholar" title="Google Scholar"><svg class="social-icon" aria-hidden="true"><use href="#icon-scholar"></use></svg></a>
+          <a href="https://github.com/PhotonTec" target="_blank" rel="noopener noreferrer" aria-label="Tianyi Xu on GitHub" title="GitHub"><svg class="social-icon" aria-hidden="true"><use href="#icon-github"></use></svg></a>
+        </div>
+      </aside>
+      <div class="biography">
+        <p class="email">Email: <a href="mailto:photon@stu.pku.edu.cn">photon [at] stu [dot] pku [dot] edu [dot] cn</a></p>
+        <p>I am a Ph.D. student at the <a href="https://cs.pku.edu.cn/English/Home.htm" target="_blank" rel="noopener noreferrer">School of Computer Science</a>, <a href="https://english.pku.edu.cn/" target="_blank" rel="noopener noreferrer">Peking University</a>, advised by Prof. <a href="https://ci.idm.pku.edu.cn/" target="_blank" rel="noopener noreferrer">Boxin Shi</a>. I received my B.S. degree from the Turing Class at Peking University in 2025.</p>
+        <p>My research interests include <strong>world models</strong>, <strong>embodied intelligence</strong>, video generation, and computational photography. I am currently an intern at XLab, <a href="https://www.galaxea-ai.com/" target="_blank" rel="noopener noreferrer">Galaxea AI</a>.</p>
+        <p>Previously, I worked with Prof. <a href="https://tianfan.info/" target="_blank" rel="noopener noreferrer">Tianfan Xue</a> at Shanghai AI Laboratory and Prof. <a href="https://zsdonghao.github.io/" target="_blank" rel="noopener noreferrer">Hao Dong</a> at the Center on Frontiers of Computing Studies, Peking University.</p>
+        <p class="opportunities">I am looking forward to internship and collaboration opportunities, especially in <strong>world models and embodied intelligence</strong>. Feel free to <a href="mailto:photon@stu.pku.edu.cn">get in touch</a>!</p>
+      </div>
+    </section>
+
+    <section id="news" aria-labelledby="news-title">
+      <h2 id="news-title">News</h2>
+      <ul class="news-list">
+        <li><span class="date">2026</span><span>Our paper on diffusion-based dual-view reflection removal was accepted to <strong>ECCV 2026</strong>.</span></li>
+        <li><span class="date">2026</span><span>I joined <strong>XLab, Galaxea AI</strong> as an intern.</span></li>
+        <li><span class="date">2025</span><span>I started my Ph.D. at <strong>Peking University</strong>, advised by Prof. Boxin Shi.</span></li>
+        <li><span class="date">2025</span><span><strong>AdaptiveAE</strong> was accepted to <strong>ICCV 2025</strong>.</span></li>
+        <li><span class="date">2024</span><span><strong>AdaptiveISP</strong> was accepted to <strong>NeurIPS 2024</strong>.</span></li>
+      </ul>
+    </section>
+
+    <section id="publications" aria-labelledby="publications-title">
+      <h2 id="publications-title">Publications</h2>
+      <div id="publication-list"></div>
+      <noscript><p>Please enable JavaScript to view the publication list.</p></noscript>
+    </section>
+
+    <section id="experience" aria-labelledby="experience-title">
+      <h2 id="experience-title">Research and Internship Experience</h2>
+      <ul class="experience-list">
+        <li><div><strong>Galaxea AI, XLab</strong> <span class="period">2026–present</span></div><div>Research Intern</div></li>
+        <li><div><strong>Shanghai AI Laboratory</strong> <span class="period">2023–2024</span></div><div>Research Intern, Xingqi Program</div><div class="detail">Advisor: <a href="https://tianfan.info/" target="_blank" rel="noopener noreferrer">Prof. Tianfan Xue</a>, The Chinese University of Hong Kong. Research: computational photography.</div></li>
+        <li><div><strong>Center on Frontiers of Computing Studies, Peking University</strong> <span class="period">2022–2023</span></div><div>Undergraduate Researcher</div><div class="detail">Advisor: <a href="https://zsdonghao.github.io/" target="_blank" rel="noopener noreferrer">Prof. Hao Dong</a>. Research: embodied intelligence.</div></li>
+      </ul>
+    </section>
+
+    <section id="education" aria-labelledby="education-title">
+      <h2 id="education-title">Education</h2>
+      <ul class="education-list">
+        <li><div><strong>Peking University</strong> <span class="period">2025–present</span></div><div>Ph.D. Student, School of Computer Science</div><div class="detail">Advisor: Prof. Boxin Shi</div></li>
+        <li><div><strong>Peking University</strong> <span class="period">2021–2025</span></div><div>B.S., Turing Class</div></li>
+        <li><div><strong>Hengshui High School</strong> <span class="period">2018–2021</span></div><div class="detail">National College Entrance Examination: 703; ranked 2nd in Hebei Province.</div></li>
+      </ul>
+    </section>
+
+    <section id="honors" aria-labelledby="honors-title">
+      <h2 id="honors-title">Selected Honors</h2>
+      <ul class="honors-list">
+        <li>Third Prize, Huawei Hackathon Software Challenge <span class="honor-year">2025</span></li>
+        <li>John Hopcroft Scholarship, CFCS Turing Class, Peking University <span class="honor-year">2024</span></li>
+        <li>Third Prize, Peking University Programming Contest <span class="honor-year">2022, 2023, 2024</span></li>
+        <li>Outstanding Research Award, Peking University <span class="honor-year">2022–2023</span></li>
+        <li>Tianchuang Scholarship <span class="honor-year">2022–2023</span></li>
+        <li>First Prize, 33rd Beijing College Mathematics Competition (Non-Mathematics, Group A) <span class="honor-year">2022</span></li>
+        <li>Second-Class Freshman Dean's Scholarship <span class="honor-year">2021</span></li>
+        <li>First Prize, Chinese Physics Olympiad, Hebei Division <span class="honor-year">2020</span></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer><div class="container">© 2026 Tianyi Xu. Last updated: October 8, 2026.</div></footer>
+  <div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
