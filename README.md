@@ -57,3 +57,17 @@ Push to `PhotonTec/PhotonTec.github.io` on the `main` branch, then select **GitH
 The CV describes Tianyi Xu as the fourth author of the ICRA paper. The published conference author list instead places Tianyi Xu sixth; the homepage follows that list and omits author-rank claims. The earlier arXiv version has a different author list.
 
 Interface icons: Feather (MIT), Simple Icons (CC0), and the Academicons 1.9.1 Google Scholar glyph used by the reference site (font: SIL Open Font License; code: MIT). Typography: Google Roboto (SIL Open Font License). These are locally hosted; no third-party runtime libraries, trackers, or analytics are required.
+
+## Search discovery and indexing
+
+`robots.txt` permits crawling and points to `sitemap.xml`. The sitemap lists the canonical homepage; section fragments such as `#about-me` are not separate pages. Add any future standalone public pages to the sitemap. The homepage includes Person JSON-LD using the same name, affiliation, and profile links as the visible biography; keep these in sync when editing.
+
+To request indexing:
+
+1. Add `https://photontec.github.io/` as a **URL-prefix** property in [Google Search Console](https://search.google.com/search-console/).
+2. Choose HTML tag verification and put the exact Google-provided `google-site-verification` meta tag inside `<head>` in `index.html` (or commit the exact verification HTML file supplied by Google at the repository root). Deploy before clicking Verify, and keep the verification tag/file afterward.
+3. Submit `https://photontec.github.io/sitemap.xml` under Sitemaps.
+4. Inspect `https://photontec.github.io/`, run Test live URL, then Request indexing. Check Page indexing / URL Inspection for Google's actual status and any reported issues.
+5. In [Bing Webmaster Tools](https://www.bing.com/webmasters/), import the verified Search Console property or verify separately, then submit the sitemap.
+
+Link this homepage from the GitHub profile, Google Scholar profile, and relevant lab/project pages where you can edit them or ask their maintainers. Neither a sitemap nor structured data guarantees indexing or ranking, and there is no guaranteed indexing timeline. Missing `robots.txt` alone does not block crawling; an empty `site:` search alone is not definitive proof of indexing status.
